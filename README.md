@@ -73,7 +73,7 @@
         
  правим /etc/postgresql/9.4/main/pg_hba.conf, раздел подключений. Необходимо сделать так, чтобы локальное подключение не требовало пароля 
        
-        local   all  all trust
+       local   all  all trust
 	
 	Скармливаем дамп:
         
