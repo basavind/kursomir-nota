@@ -106,26 +106,22 @@ FB;
 		?></dd>
 
 		<?php
-			if(!Yii::app()->user->isGuest) {
+                        if(!Yii::app()->user->isGuest) {
 				$myStatus = "";
-				if ($book->membership) {
-					if($book->membership->status == GroupMember::BANNED) {
-						$myStatus = "Вы забанены в этом переводе.";
-					} elseif($book->membership->status == GroupMember::MODERATOR) {
-						$myStatus = "Вы &ndash; модератор этой группы. <a href='" . $book->getUrl("members") . "#leave'>Выйти</a>.";
-					} elseif($book->membership->status == GroupMember::MEMBER) {
-						$myStatus = "Вы состоите в группе перевода. <a href='" . $book->getUrl("members") . "#leave'>Выйти</a>.";
-					}
-				} else {
-					if($book->owner_id == Yii::app()->user->id) {
-						$myStatus = "Вы &ndash; создатель этого перевода.";
-					} elseif($book->facecontrol != Book::FC_OPEN) {
-						$myStatus = "Вы не состоите в группе перевода. ";
-						if($book->facecontrol == Book::FC_CONFIRM) {
-							$myStatus .= "<a href='" . $book->getUrl("members") . "' class='act' title='Вашу заявку сначала рассмотрят модераторы'>Вступить</a>.";
-						} elseif($book->facecontrol == Book::FC_INVITE) {
-							$myStatus .= "Членство в этой группе &ndash; только по приглашению от " . ($book->ac_membership == "m" ? "модераторов" : "владельца перевода") . ".";
-						}
+				if($book->membership->status == GroupMember::BANNED) {
+					$myStatus = "Вы забанены в этом переводе.";
+				} elseif($book->owner_id == Yii::app()->user->id) {
+					$myStatus = "Вы &ndash; создатель этого перевода.";
+				} elseif($book->membership->status == GroupMember::MODERATOR) {
+					$myStatus = "Вы &ndash; модератор этой группы. <a href='" . $book->getUrl("members") . "#leave'>Выйти</a>.";
+				} elseif($book->membership->status == GroupMember::MEMBER) {
+					$myStatus = "Вы состоите в группе перевода. <a href='" . $book->getUrl("members") . "#leave'>Выйти</a>.";
+				} elseif($book->facecontrol != Book::FC_OPEN) {
+					$myStatus = "Вы не состоите в группе перевода. ";
+					if($book->facecontrol == Book::FC_CONFIRM) {
+						$myStatus .= "<a href='" . $book->getUrl("members") . "' class='act' title='Вашу заявку сначала рассмотрят модераторы'>Вступить</a>.";
+					} elseif($book->facecontrol == Book::FC_INVITE) {
+						$myStatus .= "Членство в этой группе &ndash; только по приглашению от " . ($book->ac_membership == "m" ? "модераторов" : "владельца перевода") . ".";
 					}
 				}
 				if($myStatus != "") echo "<dt>Ваш статус:</dt><dd>{$myStatus}</dd>";
