@@ -67,7 +67,7 @@
 	
 	Скармливаем дамп:
         
-       psql -U notabenoid < init.sql
+       psql -U notabenoid < /srv/notabenoid.com/init.sql
         
 Изменяем права пользователя notabenoid
 	sudo -u postgres psql template1
