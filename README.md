@@ -61,9 +61,13 @@
         sudo -u postgres createuser -E -P notabenoid
         sudo -u postgres createdb -O notabenoid notabenoid
         
- правим /etc/postgresql/9.4/main/pg_hba.conf, раздел подключений. Необходимо сделать так, чтобы локальное подключение не требовало пароля
- 	local   all  all trust
-        psql -U notabenoid < init.sql
+ правим /etc/postgresql/9.4/main/pg_hba.conf, раздел подключений. Необходимо сделать так, чтобы локальное подключение не требовало пароля 
+       
+        local   all  all trust
+	
+	Скармливаем дамп:
+        
+       psql -U notabenoid < init.sql
         
 Изменяем права пользователя notabenoid
 	sudo -u postgres psql template1
