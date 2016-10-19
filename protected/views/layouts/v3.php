@@ -40,7 +40,6 @@ Yii::app()->bootstrap->registerModal();
     <div class="<?= $containerClass; ?>" style="background-color:#fff;">
         <a href="/" id="header-logo">
             <img src="/i/logo.png" width="124" height="130"
-                 style="padding-top: 50px;"
                  alt="<?= CHtml::encode(Yii::app()->name); ?>"
                  title="<?= appParams()["version"]; ?>"/>
         </a>
@@ -90,6 +89,12 @@ Yii::app()->bootstrap->registerModal();
                             Места, где вы общались
                         </a>
                     </li>
+                    <li id="hm-c">
+                        <a href="/my/mail" accesskey="c">
+                            <strong>Почта <?php echo bold_if_nonzero(Yii::app()->user->newMail); ?></strong>
+                            Личная
+                        </a>
+                    </li>					
                     <li id="hm-n">
                         <a href="/my/notices" accesskey="n">
                             <strong>Оповещения <?php echo bold_if_nonzero(Yii::app()->user->newNotices); ?></strong>
@@ -179,9 +184,6 @@ if (!Yii::app()->user->isGuest):
     <div class="<?= $containerClass; ?>">
         <div class="row">
             <div class="span6">
-                &copy; <a href="http://romakhin.ru/" rel="nofollow">Дмитрий Ромахин</a>
-                2008&ndash;<?php echo date("Y"); ?>
-                <br/>
                 <a href="/site/help">Справка</a> |
                 <a href="/blog?topic=65">Техподдержка</a> |
                 <a href="mailto:abuse@<?= appParams()["domain"]; ?>?subj=<?= urlencode($_SERVER["REQUEST_URI"]); ?>">Abuse</a> |
