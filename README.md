@@ -74,7 +74,7 @@
     # sudo -u postgres psql template1
 
     # alter role notabenoid with superuser;
-    # /q
+    # \q
 
 5. Настало время охуительных конфигов! В /protected/config/main.php найдите строки
 
