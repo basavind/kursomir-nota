@@ -70,9 +70,11 @@
        psql -U notabenoid < /srv/notabenoid.com/init.sql
         
 Изменяем права пользователя notabenoid
-	sudo -u postgres psql template1
+        
+    # sudo -u postgres psql template1
 
-	# alter role notabenoid with superuser;
+    # alter role notabenoid with superuser;
+    # /q
 
 5. Настало время охуительных конфигов! В /protected/config/main.php найдите строки
 
