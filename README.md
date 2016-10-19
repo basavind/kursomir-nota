@@ -81,7 +81,7 @@
         
 Изменяем права пользователя notabenoid
         
-    # sudo -u postgres psql template1
+    sudo -u postgres psql template1
 
     # alter role notabenoid with superuser;
     # \q
