@@ -25,7 +25,7 @@ abstract class ReadyGenerator_base {
 		$this->eol = $options->eol;
 	}
 
-	public function generate($return = false, $skip_credits = true) {
+	public function generate($return = false, $skip_credits = false) {
 		if($return) ob_start();
 
 		$this->header();
@@ -183,8 +183,7 @@ class ReadyGenerator_h extends ReadyGenerator_base {
 
 class ReadyGenerator_t extends ReadyGenerator_base {
 	public function verse($t1, $t2, $body, $ord = null) {
-		//echo "{$body}{$this->eol}{$this->eol}";
-		echo "{$body}{$this->eol}";
+		echo "{$body}{$this->eol}{$this->eol}";
 	}
 }
 ?>
